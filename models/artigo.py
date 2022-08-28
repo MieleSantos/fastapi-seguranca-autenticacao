@@ -12,5 +12,5 @@ class ArtigoModel(settings.DBBaseModel):
     descricao = Column(String(256))
     usuario_id = Column(Integer, ForeignKey("usuarios.id"))
     criador = relationship(
-        "UsuarioModel", back_populates="artigos", lay="joined"
-    )
+        "UsuarioModel", back_populates="artigos"
+    )  # , lay="joined"
