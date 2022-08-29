@@ -25,7 +25,7 @@ class UsuarioSchemaArtigos(UsuarioSchemaBase):
 
 
 # class para atualizar usuario
-class UsuarioSchemaUo(UsuarioSchemaBase):
+class UsuarioSchemaUp(UsuarioSchemaBase):
     nome: Optional[str]  # type: ignore
     sobrenome: Optional[str]  # type: ignore
     email: Optional[EmailStr]  # type: ignore
