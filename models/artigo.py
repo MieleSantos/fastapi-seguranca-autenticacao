@@ -11,4 +11,6 @@ class ArtigoModel(settings.DBBaseModel):
     url_fonte = Column(String(256))
     descricao = Column(String(256))
     usuario_id = Column(Integer, ForeignKey("usuarios.id"))
-    criador = relationship("UsuarioModel", back_populates="artigos")  # , lay="joined"
+    criador = relationship(
+        "UsuarioModel", back_populates="artigos"
+    )  # , lay="joined"

@@ -64,7 +64,9 @@ async def get_usuarios(db: AsyncSession = Depends(get_session)):
     response_model=UsuarioSchemaArtigos,
     status_code=status.HTTP_200_OK,
 )
-async def get_usuario(usuario_id: int, db: AsyncSession = Depends(get_session)):
+async def get_usuario(
+    usuario_id: int, db: AsyncSession = Depends(get_session)
+):  # type:ignore
     async with db as session:
         query = select(UsuarioModel).filter(UsuarioModel.id == usuario_id)
         result = await session.execute(query)

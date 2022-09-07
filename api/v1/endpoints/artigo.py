@@ -2,10 +2,11 @@ from typing import List
 
 from core.deps import get_current_user, get_session
 from fastapi import APIRouter, Depends, HTTPException, Response, status
+from loguru import logger
 from models.artigo import ArtigoModel
 from models.usuario import UsuarioModel
 from schemas.artigo_schema import ArtigoSchema
-from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
 router = APIRouter()
@@ -26,7 +27,7 @@ async def post_artigo(
         url_fonte=artigo.url_fonte,
         usuario_id=usuario_logado.id,
     )
-
+    logger.info("Adicionando novo artigo")
     db.add(novo_artigo)
     await db.commit()
     return novo_artigo
@@ -89,6 +90,9 @@ async def put_artigo(
                 artigo_up.url_fonte = artigo.url_fonte
             if usuario_logado.id != artigo_up.usuario_id:
                 artigo_up.usuario_id = usuario_logado.id
+
+            logger.info("Atualizando artigo")
+
             await session.commit()
             return artigo_up
         else:
@@ -102,7 +106,7 @@ async def put_artigo(
 @router.delete(
     "/{artigo_d}",
     response_model=ArtigoSchema,
-    status_code=status.HTTP_204_NO_CONTENT,
+    # status_code=status.HTTP_204_NO_CONTENT,
 )
 async def delete_artigo(
     artigo_id: int,

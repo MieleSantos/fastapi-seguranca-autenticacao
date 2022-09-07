@@ -3,9 +3,9 @@ from typing import Generator, Optional
 
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
-from models.usuario_model import UsuarioModel
+from models.usuario import UsuarioModel
+from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import BaseModel
 
 from core.auth import oauth2_shema
 from core.configs import settings
@@ -16,7 +16,7 @@ class TokenData(BaseModel):
     username: Optional[str] = None
 
 
-async def get_session() -> Generator:
+async def get_session() -> Generator:  # type:ignore
     session: AsyncSession = Session()
     try:
         yield session

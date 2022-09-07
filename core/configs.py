@@ -14,7 +14,9 @@ class Settings(BaseSettings):
     """
 
     API_V1_STR: str = "/api/v1"
-    DB_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/faculdade"
+    DB_URL: str = (
+        "postgresql+asyncpg://postgres:postgres@localhost:5432/faculdade"
+    )
     DBBaseModel = declarative_base()
 
     JWT_SECRET: str = os.environ["JWT_SECRET"]
