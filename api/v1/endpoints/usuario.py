@@ -6,7 +6,7 @@ from core.security import gerar_hash_senha
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from fastapi.responses import JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm
-from models.usuario import UsuarioModel
+from models.usuario_model import UsuarioModel
 from schemas.usuario_schema import (
     UsuarioSchemaArtigos,
     UsuarioSchemaBase,

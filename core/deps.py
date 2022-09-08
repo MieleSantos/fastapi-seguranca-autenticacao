@@ -3,7 +3,7 @@ from typing import Generator, Optional
 
 from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
-from models.usuario import UsuarioModel
+from models.usuario_model import UsuarioModel
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 

@@ -3,8 +3,8 @@ from typing import List
 from core.deps import get_current_user, get_session
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from loguru import logger
-from models.artigo import ArtigoModel
-from models.usuario import UsuarioModel
+from models.artigo_model import ArtigoModel
+from models.usuario_model import UsuarioModel
 from schemas.artigo_schema import ArtigoSchema
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select

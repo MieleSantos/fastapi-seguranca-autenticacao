@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt
-from models.usuario import UsuarioModel
+from models.usuario_model import UsuarioModel
 from pydantic import EmailStr
 from pytz import timezone  # type: ignore
 from sqlalchemy.ext.asyncio import AsyncSession
